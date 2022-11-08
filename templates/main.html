@@ -647,73 +647,73 @@
                     </table>
 
                     <!-- Still Images -->
-                    <div class="settings-section-title" id="stillImagesSectionDiv">
-                        <input type="checkbox" class="styled section still-images camera-config" id="stillImagesEnabledSwitch">
-                        <span class="help-mark" title="enable this if you want to capture still images (pictures)">?</span>
-                        <a class="settings-section-title">Still Images</a>
-                        <span class="minimize"></span>
-                    </div>
-                    <table class="settings">
-                        <tr class="settings-item" required="true" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Image File Name</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled still-images camera-config" id="imageFileNameEntry" placeholder="file name pattern..."></td>
-                            <td><span class="help-mark" title="sets the name pattern for the image (JPEG) files; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, / = subfolder">?</span></td>
-                        </tr>
-                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%">
-                            <td class="settings-item-label"><span class="settings-item-label">Image Quality</span></td>
-                            <td class="settings-item-value"><input type="text" class="range styled still-images camera-config" id="imageQualitySlider"></td>
-                            <td><span class="help-mark" title="sets the JPEG image quality (higher values produce a better image quality but require more storage space)">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Capture Mode</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled still-images camera-config" id="captureModeSelect">
-                                    <option value="motion-triggered">Motion Triggered</option>
-                                    <option value="motion-triggered-one">Motion Triggered (One Picture)</option>
-                                    <option value="interval-snapshots">Interval Snapshots</option>
-                                    <option value="all-frames">All Frames</option>
-                                    <option value="manual">Manual</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="sets the image capture mode:
-                                    Motion Triggered = an image captured whenever motion is detected,
-                                    Interval Snapshots = an image captured every x seconds,
-                                    All Frames = saves each frame to an image file,
-                                    Manual = manual snapshots using snapshot button">?</span></td>
-                        </tr>
-                        <tr class="settings-item" min="1" max="86400" required="true" depends="captureMode=interval-snapshots">
-                            <td class="settings-item-label"><span class="settings-item-label">Snapshot Interval</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="snapshotIntervalEntry"><span class="settings-item-unit">seconds</span></td>
-                            <td><span class="help-mark" title="sets the interval (in seconds) for the snapshots">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Preserve Pictures</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled still-images camera-config" id="preservePicturesSelect">
-                                    <option value="1">For One Day</option>
-                                    <option value="7">For One Week</option>
-                                    <option value="30">For One Month</option>
-                                    <option value="365">For One Year</option>
-                                    <option value="0">Forever</option>
-                                    <option value="-1">Custom</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="images older than the specified duration are automatically deleted to free up storage space">?</span></td>
-                        </tr>
-                        <tr class="settings-item" min="1" max="3650" depends="preservePictures=-1" required="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Pictures Lifetime</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="picturesLifetimeEntry"><span class="settings-item-unit">days</span></td>
-                            <td><span class="help-mark" title="sets the number of days after which the pictures will be deleted automatically">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Enable Manual Snapshots</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled still-images camera-config" id="manualSnapshotsSwitch"></td>
-                            <td><span class="help-mark" title="when this is enabled, a button on the camera frame will allow you to manually take snapshots">?</span></td>
-                        </tr>
-                        {% for config in camera_sections.get('still-images', {}).get('configs', []) %}
-                            {{config_item(config)}}
-                        {% endfor %}
-                    </table>
+<!--                    <div class="settings-section-title" id="stillImagesSectionDiv">-->
+<!--                        <input type="checkbox" class="styled section still-images camera-config" id="stillImagesEnabledSwitch">-->
+<!--                        <span class="help-mark" title="enable this if you want to capture still images (pictures)">?</span>-->
+<!--                        <a class="settings-section-title">Still Images</a>-->
+<!--                        <span class="minimize"></span>-->
+<!--                    </div>-->
+<!--                    <table class="settings">-->
+<!--                        <tr class="settings-item" required="true" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Image File Name</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled still-images camera-config" id="imageFileNameEntry" placeholder="file name pattern..."></td>-->
+<!--                            <td><span class="help-mark" title="sets the name pattern for the image (JPEG) files; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, / = subfolder">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Image Quality</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="range styled still-images camera-config" id="imageQualitySlider"></td>-->
+<!--                            <td><span class="help-mark" title="sets the JPEG image quality (higher values produce a better image quality but require more storage space)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Capture Mode</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled still-images camera-config" id="captureModeSelect">-->
+<!--                                    <option value="motion-triggered">Motion Triggered</option>-->
+<!--                                    <option value="motion-triggered-one">Motion Triggered (One Picture)</option>-->
+<!--                                    <option value="interval-snapshots">Interval Snapshots</option>-->
+<!--                                    <option value="all-frames">All Frames</option>-->
+<!--                                    <option value="manual">Manual</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="sets the image capture mode:-->
+<!--                                    Motion Triggered = an image captured whenever motion is detected,-->
+<!--                                    Interval Snapshots = an image captured every x seconds,-->
+<!--                                    All Frames = saves each frame to an image file,-->
+<!--                                    Manual = manual snapshots using snapshot button">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" min="1" max="86400" required="true" depends="captureMode=interval-snapshots">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Snapshot Interval</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="snapshotIntervalEntry"><span class="settings-item-unit">seconds</span></td>-->
+<!--                            <td><span class="help-mark" title="sets the interval (in seconds) for the snapshots">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Preserve Pictures</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled still-images camera-config" id="preservePicturesSelect">-->
+<!--                                    <option value="1">For One Day</option>-->
+<!--                                    <option value="7">For One Week</option>-->
+<!--                                    <option value="30">For One Month</option>-->
+<!--                                    <option value="365">For One Year</option>-->
+<!--                                    <option value="0">Forever</option>-->
+<!--                                    <option value="-1">Custom</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="images older than the specified duration are automatically deleted to free up storage space">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" min="1" max="3650" depends="preservePictures=-1" required="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Pictures Lifetime</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="picturesLifetimeEntry"><span class="settings-item-unit">days</span></td>-->
+<!--                            <td><span class="help-mark" title="sets the number of days after which the pictures will be deleted automatically">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Enable Manual Snapshots</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled still-images camera-config" id="manualSnapshotsSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="when this is enabled, a button on the camera frame will allow you to manually take snapshots">?</span></td>-->
+<!--                        </tr>-->
+<!--                        {% for config in camera_sections.get('still-images', {}).get('configs', []) %}-->
+<!--                            {{config_item(config)}}-->
+<!--                        {% endfor %}-->
+<!--                    </table>-->
 
                     <!-- Movies -->
                     <div class="settings-section-title" id="moviesSectionDiv">
@@ -784,325 +784,7 @@
                         {% endfor %}
                     </table>
 
-                    <!-- Motion Detection -->
-<!--                    <div class="settings-section-title" id="motionDetectionSectionDiv">-->
-<!--                        <input type="checkbox" class="styled section motion-detection camera-config" id="motionDetectionEnabledSwitch">-->
-<!--                        <span class="help-mark" title="enable this to use and configure the motion detection mechanism">?</span>-->
-<!--                        <a class="settings-section-title">Motion Detection</a>-->
-<!--                        <span class="minimize"></span>-->
-<!--                    </div>-->
-<!--                    <table class="settings">-->
-<!--                        <tr class="settings-item" min="0" max="20" snap="0" ticksnum="5" decimals="1" unit="%" depends="!autoThresholdTuning">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Frame Change Threshold</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled motion-detection camera-config" id="frameChangeThresholdSlider"></td>-->
-<!--                            <td><span class="help-mark" title="indicates the minimal percent of the image that must change between two successive frames in order for motion to be detected (smaller values give a more sensitive detection, but are prone to false positives)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" required="true" depends="!autoThresholdTuning">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Maximum Change Threshold</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled motion-detection camera-config" id="maxFrameChangeThresholdEntry"><span class="settings-item-unit">pixels</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the number of pixels changed between frames above which motion is no longer triggered (0 disables the limit)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Auto Threshold Tuning</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="autoThresholdTuningSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this to automatically adjust the threshold">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Auto Noise Detection</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="autoNoiseDetectSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this to automatically adjust the noise level">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="25" snap="0" ticksnum="6" decimals="0" unit="%" depends="!autoNoiseDetect">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Noise Level</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled motion-detection camera-config" id="noiseLevelSlider"></td>-->
-<!--                            <td><span class="help-mark" title="manually sets the noise level to a fixed value">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Light Switch Detection</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled motion-detection camera-config" id="lightSwitchDetectSlider"></td>-->
-<!--                            <td><span class="help-mark" title="sets the percentage of the image that needs to change so that the event is treated as a sudden light change instead of motion (0% disables the function)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Despeckle Filter</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="despeckleFilterSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this to apply a despeckle filter to frames before detecting motion">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="86400" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Motion Gap</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled motion-detection camera-config" id="eventGapEntry"><span class="settings-item-unit">seconds</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the number of seconds of silence (i.e. no motion) that mark the end of a motion event">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="1000" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Captured Before</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled motion-detection camera-config" id="preCaptureEntry"><span class="settings-item-unit">frames</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the number of frames to be captured (and included in the movie) before a motion event is detected">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="1000" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Captured After</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled motion-detection camera-config" id="postCaptureEntry"><span class="settings-item-unit">frames</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the number of frames to be captured (and included in the movie) after the end of a motion event">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="1" max="1000" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Minimum Motion Frames</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled motion-detection camera-config" id="minimumMotionFramesEntry"><span class="settings-item-unit">frames</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the minimum number of successive motion frames required to start a motion event">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Mask</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="maskSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enables image masking for a more selective and precise motion detection">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="mask">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Mask Type</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <select class="styled motion-detection camera-config" id="maskTypeSelect">-->
-<!--                                    <option value="smart">Smart</option>-->
-<!--                                    <option value="editable">Editable</option>-->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="the smart option automatically detects regions with regular motion and dynamically builds an internal mask, while the editable mask allows you to manually build it yourself">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="1" max="10" snap="1" ticksnum="10" decimals="0" unit="" depends="mask maskType=smart">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Smart Mask Sluggishness</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled motion-detection camera-config" id="smartMaskSluggishnessSlider"></td>-->
-<!--                            <td><span class="help-mark" title="higher values result in a longer-lasting smart mask with a slower building process">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="mask maskType=editable">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <div class="button normal-button edit-mask-button" id="editMaskButton">Edit Mask</div>-->
-<!--                                <div class="button normal-button save-mask-button" id="saveMaskButton">Save Mask</div>-->
-<!--                                <input type="text" class="motion-detection camera-config" id="maskLinesEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="click this button to enable/disable the mask editor">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="mask maskType=editable">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
-<!--                            <td class="settings-item-value"><div class="button normal-button clear-mask-button" id="clearMaskButton">Clear Mask</div></td>-->
-<!--                            <td><span class="help-mark" title="click this button to clear the current mask">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Show Frame Changes</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="showFrameChangesSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="if this is enabled, frame changes (number of pixels as well as the changed area) are shown on the video; temporarily enable this option to help adjust the motion detection parameters">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Create Debug Media Files</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled motion-detection camera-config" id="createDebugMediaSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="when enabled, creates special movies and pictures that help debugging motion detection problems">?</span></td>-->
-<!--                        </tr>-->
-<!--                        {% for config in camera_sections.get('motion-detection', {}).get('configs', []) %}-->
-<!--                            {{config_item(config)}}-->
-<!--                        {% endfor %}-->
-<!--                    </table>-->
 
-                    <!-- Motion Notifications -->
-<!--                    <div class="settings-section-title" id="notificationsSectionDiv">-->
-<!--                        <span class="help-mark" title="enable this if you want to be notified when motion is detected">?</span>-->
-<!--                        <a class="settings-section-title">Motion Notifications</a>-->
-<!--                        <span class="minimize"></span>-->
-<!--                    </div>-->
-<!--                    <table class="settings">-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Send An Email</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled notifications camera-config" id="emailNotificationsEnabledSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this if you want to receive an email whenever a motion event is detected">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" required="true" depends="emailNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Email Addresses</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" autocomplete="new-password" class="styled notifications camera-config" id="emailAddressesEntry" placeholder="email addresses..."></td>-->
-<!--                            <td><span class="help-mark" title="email addresses (separated by comma) that are added here will receive notifications whenever a motion event is detected">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" required="true" depends="emailNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">SMTP Server</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="smtpServerEntry" placeholder="e.g. smtp.gmail.com"></td>-->
-<!--                            <td><span class="help-mark" title="enter the hostname or IP address of your SMTP server (for Gmail use smtp.gmail.com)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="1" max="65535" depends="emailNotificationsEnabled motionDetectionEnabled" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">SMTP Port</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled number notifications camera-config" id="smtpPortEntry" placeholder="e.g. 587"></td>-->
-<!--                            <td><span class="help-mark" title="enter the port used by your SMTP server (usually 465 for non-TLS connections and 587 for TLS connections)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="emailNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">SMTP Account</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="smtpAccountEntry" placeholder="account@gmail.com..."></td>-->
-<!--                            <td><span class="help-mark" title="enter your SMTP account (normally your email address)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="emailNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">SMTP Password</span></td>-->
-<!--                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled notifications camera-config" id="smtpPasswordEntry"></td>-->
-<!--                            <td><span class="help-mark" title="enter your SMTP account password (for Gmail use your Google password or an app-specific generated password)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="emailNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">From Address</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="emailFromEntry" placeholder="email address..."></td>-->
-<!--                            <td><span class="help-mark" title="set a custom From address, if your SMTP service requires one (the first destination email address will be used if left blank)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="emailNotificationsEnabled motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Use TLS</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled notifications camera-config" id="smtpTlsSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this if your SMTP server requires TLS (Gmail needs this to be enabled)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="60" required="true" depends="emailNotificationsEnabled motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Attached Pictures Time Span</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="number styled notifications camera-config" id="emailPictureTimeSpanEntry"><span class="settings-item-unit">seconds</span></td>-->
-<!--                            <td><span class="help-mark" title="defines the picture search time interval to use when creating email attachments (higher values generate emails with more pictures at the cost of an increased notification delay); set to 0 to disable picture attachments; you must also enable Still Images for this to work">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="emailNotificationsEnabled motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
-<!--                            <td class="settings-item-value"><div class="button normal-button test-button" id="emailTestButton">Test Email</div></td>-->
-<!--                            <td><span class="help-mark" title="click this button to test email notifications after you have filled in the required details">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Call A Web Hook</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled notifications camera-config" id="webHookNotificationsEnabledSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this if you want a URL to be requested whenever a motion event is detected">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" required="true" depends="webHookNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Web Hook URL</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="webHookNotificationsUrlEntry" placeholder="e.g. http://example.com/notify/"></td>-->
-<!--                            <td><span class="help-mark" title="a URL to be requested when motion is detected; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="webHookNotificationsEnabled motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">HTTP Method</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <select class="styled notifications camera-config" id="webHookNotificationsHttpMethodSelect">-->
-<!--                                    <option value="GET">GET</option>-->
-<!--                                    <option value="POST">POST (query)</option>-->
-<!--                                    <option value="POSTf">POST (form)</option>-->
-<!--                                    <option value="POSTj">POST (json)</option>-->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="the HTTP method to use when requesting the web hook URL (the given URL-encoded parameters will in fact be transmitted as indicated here)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Run A Command</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled notifications camera-config" id="commandNotificationsEnabledSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this if you want to execute a command whenever a motion event is detected">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" required="true" depends="commandNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Command</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="commandNotificationsEntry" placeholder="command..."></td>-->
-<!--                            <td><span class="help-mark" title="a command to be executed when motion is detected; multiple commands can be separated by a semicolon; don't use semicolons inside commands; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Run An End Command</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled notifications camera-config" id="commandEndNotificationsEnabledSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="enable this if you want to execute a command whenever a motion event ends">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" required="true" depends="commandEndNotificationsEnabled motionDetectionEnabled" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Command</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled notifications camera-config" id="commandEndNotificationsEntry" placeholder="command..."></td>-->
-<!--                            <td><span class="help-mark" title="a command to be executed when motion event ends; multiple commands can be separated by a semicolon; don't use semicolons inside commands; the following special tokens are accepted: %Y = year, %m = month, %d = date, %H = hour, %M = minute, %S = second, %q = frame number">?</span></td>-->
-<!--                        </tr>-->
-<!--                        {% for config in camera_sections.get('notifications', {}).get('configs', []) %}-->
-<!--                            {{config_item(config, "motionDetectionEnabled")}}-->
-<!--                        {% endfor %}-->
-<!--                    </table>-->
-
-                    <!-- Working Schedule -->
-<!--                    <div class="settings-section-title" depends="motionDetectionEnabled" id="workingScheduleSectionDiv">-->
-<!--                        <input type="checkbox" class="styled section working-schedule camera-config" id="workingScheduleEnabledSwitch">-->
-<!--                        <span class="help-mark" title="enable this if you want to define a weekly working schedule for motion detection">?</span>-->
-<!--                        <a class="settings-section-title">Working Schedule</a>-->
-<!--                        <span class="minimize"></span>-->
-<!--                    </div>-->
-<!--                    <table class="settings">-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Monday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="mondayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="mondayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="mondayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Mondays">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Tuesday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="tuesdayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="tuesdayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="tuesdayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Tuesdays">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Wednesday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="wednesdayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="wednesdayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="wednesdayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Wednesdays">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Thursday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="thursdayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="thursdayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="thursdayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Thursdays">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Friday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="fridayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="fridayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="fridayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Friday">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Saturday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="saturdayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="saturdayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="saturdayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Saturday">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Sunday</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <input type="checkbox" class="styled working-schedule camera-config" id="sundayEnabledSwitch">-->
-<!--                                <span class="settings-item-unit time">from</span><input type="text" class="styled working-schedule time camera-config" id="sundayFromEntry">-->
-<!--                                <span class="settings-item-unit time">to</span><input type="text" class="styled working-schedule time camera-config" id="sundayToEntry">-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the working schedule time interval for Sunday">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" depends="motionDetectionEnabled">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Detect Motion</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <select class="styled working-schedule camera-config" id="workingScheduleTypeSelect">-->
-<!--                                    <option value="during">During Working Schedule</option>-->
-<!--                                    <option value="outside">Outside Working Schedule</option>-->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets whether motion detection should be active during or outside the working schedule">?</span></td>-->
-<!--                        </tr>-->
-<!--                        {% for config in camera_sections.get('working-schedule', {}).get('configs', []) %}-->
-<!--                            {{config_item(config, "motionDetectionEnabled")}}-->
-<!--                        {% endfor %}-->
-<!--                    </table>-->
 
                     <!-- Additional Camera Sections -->
                     {% for section in camera_sections.values() %}

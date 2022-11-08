@@ -727,13 +727,13 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         'stream_authentication': main_config['@normal_username'] + ':' + main_config['@normal_password'],
 
         # still images
-        'picture_output': False,
-        'snapshot_interval': 0,
-        'picture_filename': '',
-        'snapshot_filename': '',
-        'picture_quality': max(1, int(ui['image_quality'])),
-        '@preserve_pictures': int(ui['preserve_pictures']),
-        '@manual_snapshots': ui['manual_snapshots'],
+        # 'picture_output': False,
+        # 'snapshot_interval': 0,
+        # 'picture_filename': '',
+        # 'snapshot_filename': '',
+        # 'picture_quality': max(1, int(ui['image_quality'])),
+        # '@preserve_pictures': int(ui['preserve_pictures']),
+        # '@manual_snapshots': ui['manual_snapshots'],
 
         # movies
         'movie_output': False,
@@ -879,27 +879,27 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         else:
             data['text_right'] = ui['custom_right_text']
 
-    if ui['still_images']:
-        data['picture_filename'] = ui['image_file_name']
-        data['snapshot_filename'] = ui['image_file_name']
-
-        capture_mode = ui['capture_mode']
-        if capture_mode == 'motion-triggered':
-            data['picture_output'] = True
-
-        elif capture_mode == 'motion-triggered-one':
-            data['picture_output'] = 'best'
-
-        elif capture_mode == 'interval-snapshots':
-            data['snapshot_interval'] = int(ui['snapshot_interval'])
-
-        elif capture_mode == 'all-frames':
-            data['picture_output'] = True
-            data['emulate_motion'] = True
-
-        elif capture_mode == 'manual':
-            data['picture_output'] = False
-            data['emulate_motion'] = False
+    # if ui['still_images']:
+    #     data['picture_filename'] = ui['image_file_name']
+    #     data['snapshot_filename'] = ui['image_file_name']
+    #
+    #     capture_mode = ui['capture_mode']
+    #     if capture_mode == 'motion-triggered':
+    #         data['picture_output'] = True
+    #
+    #     elif capture_mode == 'motion-triggered-one':
+    #         data['picture_output'] = 'best'
+    #
+    #     elif capture_mode == 'interval-snapshots':
+    #         data['snapshot_interval'] = int(ui['snapshot_interval'])
+    #
+    #     elif capture_mode == 'all-frames':
+    #         data['picture_output'] = True
+    #         data['emulate_motion'] = True
+    #
+    #     elif capture_mode == 'manual':
+    #         data['picture_output'] = False
+    #         data['emulate_motion'] = False
 
     if ui['movies']:
         data['movie_output'] = True

@@ -1490,10 +1490,10 @@ function updateConfigUI() {
         $('#textOverlayEnabledSwitch').parent().next('table.settings').find('tr.settings-item').each(markHideLogic);
     }
 
-    /* still images switch */
-    if (!$('#stillImagesEnabledSwitch').get(0).checked) {
-        $('#stillImagesEnabledSwitch').parent().next('table.settings').find('tr.settings-item').each(markHideLogic);
-    }
+//    /* still images switch */
+//    if (!$('#stillImagesEnabledSwitch').get(0).checked) {
+//        $('#stillImagesEnabledSwitch').parent().next('table.settings').find('tr.settings-item').each(markHideLogic);
+//    }
 
     /* movies switch */
     if (!$('#moviesEnabledSwitch').get(0).checked) {
@@ -1940,13 +1940,13 @@ function cameraUi2Dict() {
         'streaming_motion': $('#streamingMotion')[0].checked,
 
         /* still images */
-        'still_images': $('#stillImagesEnabledSwitch')[0].checked,
-        'image_file_name': $('#imageFileNameEntry').val(),
-        'image_quality': $('#imageQualitySlider').val(),
-        'capture_mode': $('#captureModeSelect').val(),
-        'snapshot_interval': $('#snapshotIntervalEntry').val(),
-        'preserve_pictures': $('#preservePicturesSelect').val() >= 0 ? $('#preservePicturesSelect').val() : $('#picturesLifetimeEntry').val(),
-        'manual_snapshots': $('#manualSnapshotsSwitch')[0].checked,
+//        'still_images': $('#stillImagesEnabledSwitch')[0].checked,
+//        'image_file_name': $('#imageFileNameEntry').val(),
+//        'image_quality': $('#imageQualitySlider').val(),
+//        'capture_mode': $('#captureModeSelect').val(),
+//        'snapshot_interval': $('#snapshotIntervalEntry').val(),
+//        'preserve_pictures': $('#preservePicturesSelect').val() >= 0 ? $('#preservePicturesSelect').val() : $('#picturesLifetimeEntry').val(),
+//        'manual_snapshots': $('#manualSnapshotsSwitch')[0].checked,
 
         /* movies */
         'movies': $('#moviesEnabledSwitch')[0].checked,
@@ -2297,18 +2297,18 @@ function dict2CameraUi(dict) {
     $('#streamingEmbedUrlHtml').data('url', embedUrl); markHideIfNull(!embedUrl, 'streamingEmbedUrlHtml');
 
     /* still images */
-    $('#stillImagesEnabledSwitch')[0].checked = dict['still_images']; markHideIfNull('still_images', 'stillImagesEnabledSwitch');
-    $('#imageFileNameEntry').val(dict['image_file_name']); markHideIfNull('image_file_name', 'imageFileNameEntry');
-    $('#imageQualitySlider').val(dict['image_quality']); markHideIfNull('image_quality', 'imageQualitySlider');
-    $('#captureModeSelect').val(dict['capture_mode']); markHideIfNull('capture_mode', 'captureModeSelect');
-    $('#snapshotIntervalEntry').val(dict['snapshot_interval']); markHideIfNull('snapshot_interval', 'snapshotIntervalEntry');
-    $('#preservePicturesSelect').val(dict['preserve_pictures']);
-    if ($('#preservePicturesSelect').val() == null) {
-        $('#preservePicturesSelect').val('-1');
-    }
-    markHideIfNull('preserve_pictures', 'preservePicturesSelect');
-    $('#picturesLifetimeEntry').val(dict['preserve_pictures']); markHideIfNull('preserve_pictures', 'picturesLifetimeEntry');
-    $('#manualSnapshotsSwitch')[0].checked = dict['manual_snapshots']; markHideIfNull('manual_snapshots', 'manualSnapshotsSwitch');
+//    $('#stillImagesEnabledSwitch')[0].checked = dict['still_images']; markHideIfNull('still_images', 'stillImagesEnabledSwitch');
+//    $('#imageFileNameEntry').val(dict['image_file_name']); markHideIfNull('image_file_name', 'imageFileNameEntry');
+//    $('#imageQualitySlider').val(dict['image_quality']); markHideIfNull('image_quality', 'imageQualitySlider');
+//    $('#captureModeSelect').val(dict['capture_mode']); markHideIfNull('capture_mode', 'captureModeSelect');
+//    $('#snapshotIntervalEntry').val(dict['snapshot_interval']); markHideIfNull('snapshot_interval', 'snapshotIntervalEntry');
+//    $('#preservePicturesSelect').val(dict['preserve_pictures']);
+//    if ($('#preservePicturesSelect').val() == null) {
+//        $('#preservePicturesSelect').val('-1');
+//    }
+//    markHideIfNull('preserve_pictures', 'preservePicturesSelect');
+//    $('#picturesLifetimeEntry').val(dict['preserve_pictures']); markHideIfNull('preserve_pictures', 'picturesLifetimeEntry');
+//    $('#manualSnapshotsSwitch')[0].checked = dict['manual_snapshots']; markHideIfNull('manual_snapshots', 'manualSnapshotsSwitch');
 
     /* movies */
     $('#moviesEnabledSwitch')[0].checked = dict['movies']; markHideIfNull('movies', 'moviesEnabledSwitch');
