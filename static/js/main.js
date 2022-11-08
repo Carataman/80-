@@ -1895,31 +1895,31 @@ function cameraUi2Dict() {
 //        }).filter(function (e) {return e;}),
 
         /* file storage */
-        'storage_device': $('#storageDeviceSelect').val(),
-        'network_server': $('#networkServerEntry').val(),
-        'network_share_name': $('#networkShareNameEntry').val(),
-        'network_smb_ver': $('#networkSMBVerSelect').val(),
-        'network_username': $('#networkUsernameEntry').val(),
-        'network_password': $('#networkPasswordEntry').val(),
-        'root_directory': $('#rootDirectoryEntry').val(),
-        'upload_enabled': $('#uploadEnabledSwitch')[0].checked,
-        'upload_picture': $('#uploadPictureSwitch')[0].checked,
-        'upload_movie': $('#uploadMovieSwitch')[0].checked,
-        'upload_service': $('#uploadServiceSelect').val(),
-        'upload_server': $('#uploadServerEntry').val(),
-        'upload_port': $('#uploadPortEntry').val(),
-        'upload_method': $('#uploadMethodSelect').val(),
-        'upload_location': $('#uploadLocationEntry').val(),
-        'upload_subfolders': $('#uploadSubfoldersSwitch')[0].checked,
-        'upload_username': $('#uploadUsernameEntry').val(),
-        'upload_password': $('#uploadPasswordEntry').val(),
-        'upload_authorization_key': $('#uploadAuthorizationKeyEntry').val(),
-        'clean_cloud_enabled': $('#cleanCloudEnabledSwitch')[0].checked,
-        'web_hook_storage_enabled': $('#webHookStorageEnabledSwitch')[0].checked,
-        'web_hook_storage_url': $('#webHookStorageUrlEntry').val(),
-        'web_hook_storage_http_method': $('#webHookStorageHttpMethodSelect').val(),
-        'command_storage_enabled': $('#commandStorageEnabledSwitch')[0].checked,
-        'command_storage_exec': $('#commandStorageEntry').val(),
+//        'storage_device': $('#storageDeviceSelect').val(),
+//        'network_server': $('#networkServerEntry').val(),
+//        'network_share_name': $('#networkShareNameEntry').val(),
+//        'network_smb_ver': $('#networkSMBVerSelect').val(),
+//        'network_username': $('#networkUsernameEntry').val(),
+//        'network_password': $('#networkPasswordEntry').val(),
+//        'root_directory': $('#rootDirectoryEntry').val(),
+//        'upload_enabled': $('#uploadEnabledSwitch')[0].checked,
+//        'upload_picture': $('#uploadPictureSwitch')[0].checked,
+//        'upload_movie': $('#uploadMovieSwitch')[0].checked,
+//        'upload_service': $('#uploadServiceSelect').val(),
+//        'upload_server': $('#uploadServerEntry').val(),
+//        'upload_port': $('#uploadPortEntry').val(),
+//        'upload_method': $('#uploadMethodSelect').val(),
+//        'upload_location': $('#uploadLocationEntry').val(),
+//        'upload_subfolders': $('#uploadSubfoldersSwitch')[0].checked,
+//        'upload_username': $('#uploadUsernameEntry').val(),
+//        'upload_password': $('#uploadPasswordEntry').val(),
+//        'upload_authorization_key': $('#uploadAuthorizationKeyEntry').val(),
+//        'clean_cloud_enabled': $('#cleanCloudEnabledSwitch')[0].checked,
+//        'web_hook_storage_enabled': $('#webHookStorageEnabledSwitch')[0].checked,
+//        'web_hook_storage_url': $('#webHookStorageUrlEntry').val(),
+//        'web_hook_storage_http_method': $('#webHookStorageHttpMethodSelect').val(),
+//        'command_storage_enabled': $('#commandStorageEnabledSwitch')[0].checked,
+//        'command_storage_exec': $('#commandStorageEntry').val(),
 
         /* text overlay */
         'text_overlay': $('#textOverlayEnabledSwitch')[0].checked,
@@ -2176,75 +2176,75 @@ function dict2CameraUi(dict) {
     }).join('\r\n')) : ''); markHideIfNull('extra_options', 'extraOptionsEntry');
 
     /* file storage */
-    $('#storageDeviceSelect').empty();
-    dict['available_disks'] = dict['available_disks'] || [];
-    var storageDeviceOptions = {'network-share': true};
-    dict['available_disks'].forEach(function (disk) {
-        disk.partitions.forEach(function (partition) {
-            var target = partition.target.replaceAll('/', '-');
-            var option = 'local-disk' + target;
-            var label = partition.vendor;
-            if (partition.model) {
-                label += ' ' + partition.model;
-            }
-            if (disk.partitions.length > 1) {
-                label += '/part' + partition.part_no;
-            }
-            label += ' (' + partition.target + ')';
-
-            storageDeviceOptions[option] = true;
-
-            $('#storageDeviceSelect').append('<option value="' + option + '">' + label + '</option>');
-        });
-    });
-    $('#storageDeviceSelect').append('<option value="custom-path">Custom Path</option>');
-    if (dict['smb_shares']) {
-        $('#storageDeviceSelect').append('<option value="network-share">Network Share</option>');
-    }
-
-    if (storageDeviceOptions[dict['storage_device']]) {
-        $('#storageDeviceSelect').val(dict['storage_device']);
-    }
-    else {
-        $('#storageDeviceSelect').val('custom-path');
-    }
-    markHideIfNull('storage_device', 'storageDeviceSelect');
-    $('#networkServerEntry').val(dict['network_server']); markHideIfNull('network_server', 'networkServerEntry');
-    $('#networkShareNameEntry').val(dict['network_share_name']); markHideIfNull('network_share_name', 'networkShareNameEntry');
-    $('#networkSMBVerSelect').val(dict['network_smb_ver']); markHideIfNull('network_smb_ver', 'networkSMBVerSelect');
-    $('#networkUsernameEntry').val(dict['network_username']); markHideIfNull('network_username', 'networkUsernameEntry');
-    $('#networkPasswordEntry').val(dict['network_password']); markHideIfNull('network_password', 'networkPasswordEntry');
-    $('#rootDirectoryEntry').val(dict['root_directory']); markHideIfNull('root_directory', 'rootDirectoryEntry');
-    var percent = 0;
-    if (dict['disk_total'] != 0) {
-        percent = parseInt(dict['disk_used'] * 100 / dict['disk_total']);
-    }
-
-    $('#diskUsageProgressBar').each(function () {
-        this.setProgress(percent);
-        this.setText((dict['disk_used'] / 1073741824).toFixed(1)  + '/' + (dict['disk_total'] / 1073741824).toFixed(1) + ' GB (' + percent + '%)');
-    }); markHideIfNull('disk_used', 'diskUsageProgressBar');
-
-    $('#uploadEnabledSwitch')[0].checked = dict['upload_enabled']; markHideIfNull('upload_enabled', 'uploadEnabledSwitch');
-    $('#uploadPictureSwitch')[0].checked = dict['upload_picture']; markHideIfNull('upload_picture', 'uploadPictureSwitch');
-    $('#uploadMovieSwitch')[0].checked = dict['upload_movie']; markHideIfNull('upload_movie', 'uploadMovieSwitch');
-    $('#uploadServiceSelect').val(dict['upload_service']); markHideIfNull('upload_service', 'uploadServiceSelect');
-    $('#uploadServerEntry').val(dict['upload_server']); markHideIfNull('upload_server', 'uploadServerEntry');
-    $('#uploadPortEntry').val(dict['upload_port']); markHideIfNull('upload_port', 'uploadPortEntry');
-    $('#uploadMethodSelect').val(dict['upload_method']); markHideIfNull('upload_method', 'uploadMethodSelect');
-    $('#uploadLocationEntry').val(dict['upload_location']); markHideIfNull('upload_location', 'uploadLocationEntry');
-    $('#uploadSubfoldersSwitch')[0].checked = dict['upload_subfolders']; markHideIfNull('upload_subfolders', 'uploadSubfoldersSwitch');
-    $('#uploadUsernameEntry').val(dict['upload_username']); markHideIfNull('upload_username', 'uploadUsernameEntry');
-    $('#uploadPasswordEntry').val(dict['upload_password']); markHideIfNull('upload_password', 'uploadPasswordEntry');
-    $('#uploadAuthorizationKeyEntry').val(dict['upload_authorization_key']); markHideIfNull('upload_authorization_key', 'uploadAuthorizationKeyEntry');
-    $('#cleanCloudEnabledSwitch')[0].checked = dict['clean_cloud_enabled']; markHideIfNull('clean_cloud_enabled', 'cleanCloudEnabledSwitch');
-
-    $('#webHookStorageEnabledSwitch')[0].checked = dict['web_hook_storage_enabled']; markHideIfNull('web_hook_storage_enabled', 'webHookStorageEnabledSwitch');
-    $('#webHookStorageUrlEntry').val(dict['web_hook_storage_url']);
-    $('#webHookStorageHttpMethodSelect').val(dict['web_hook_storage_http_method']);
-
-    $('#commandStorageEnabledSwitch')[0].checked = dict['command_storage_enabled']; markHideIfNull('command_storage_enabled', 'commandStorageEnabledSwitch');
-    $('#commandStorageEntry').val(dict['command_storage_exec']);
+//    $('#storageDeviceSelect').empty();
+//    dict['available_disks'] = dict['available_disks'] || [];
+//    var storageDeviceOptions = {'network-share': true};
+//    dict['available_disks'].forEach(function (disk) {
+//        disk.partitions.forEach(function (partition) {
+//            var target = partition.target.replaceAll('/', '-');
+//            var option = 'local-disk' + target;
+//            var label = partition.vendor;
+//            if (partition.model) {
+//                label += ' ' + partition.model;
+//            }
+//            if (disk.partitions.length > 1) {
+//                label += '/part' + partition.part_no;
+//            }
+//            label += ' (' + partition.target + ')';
+//
+//            storageDeviceOptions[option] = true;
+//
+//            $('#storageDeviceSelect').append('<option value="' + option + '">' + label + '</option>');
+//        });
+//    });
+//    $('#storageDeviceSelect').append('<option value="custom-path">Custom Path</option>');
+//    if (dict['smb_shares']) {
+//        $('#storageDeviceSelect').append('<option value="network-share">Network Share</option>');
+//    }
+//
+//    if (storageDeviceOptions[dict['storage_device']]) {
+//        $('#storageDeviceSelect').val(dict['storage_device']);
+//    }
+//    else {
+//        $('#storageDeviceSelect').val('custom-path');
+//    }
+//    markHideIfNull('storage_device', 'storageDeviceSelect');
+//    $('#networkServerEntry').val(dict['network_server']); markHideIfNull('network_server', 'networkServerEntry');
+//    $('#networkShareNameEntry').val(dict['network_share_name']); markHideIfNull('network_share_name', 'networkShareNameEntry');
+//    $('#networkSMBVerSelect').val(dict['network_smb_ver']); markHideIfNull('network_smb_ver', 'networkSMBVerSelect');
+//    $('#networkUsernameEntry').val(dict['network_username']); markHideIfNull('network_username', 'networkUsernameEntry');
+//    $('#networkPasswordEntry').val(dict['network_password']); markHideIfNull('network_password', 'networkPasswordEntry');
+//    $('#rootDirectoryEntry').val(dict['root_directory']); markHideIfNull('root_directory', 'rootDirectoryEntry');
+//    var percent = 0;
+//    if (dict['disk_total'] != 0) {
+//        percent = parseInt(dict['disk_used'] * 100 / dict['disk_total']);
+//    }
+//
+//    $('#diskUsageProgressBar').each(function () {
+//        this.setProgress(percent);
+//        this.setText((dict['disk_used'] / 1073741824).toFixed(1)  + '/' + (dict['disk_total'] / 1073741824).toFixed(1) + ' GB (' + percent + '%)');
+//    }); markHideIfNull('disk_used', 'diskUsageProgressBar');
+//
+//    $('#uploadEnabledSwitch')[0].checked = dict['upload_enabled']; markHideIfNull('upload_enabled', 'uploadEnabledSwitch');
+//    $('#uploadPictureSwitch')[0].checked = dict['upload_picture']; markHideIfNull('upload_picture', 'uploadPictureSwitch');
+//    $('#uploadMovieSwitch')[0].checked = dict['upload_movie']; markHideIfNull('upload_movie', 'uploadMovieSwitch');
+//    $('#uploadServiceSelect').val(dict['upload_service']); markHideIfNull('upload_service', 'uploadServiceSelect');
+//    $('#uploadServerEntry').val(dict['upload_server']); markHideIfNull('upload_server', 'uploadServerEntry');
+//    $('#uploadPortEntry').val(dict['upload_port']); markHideIfNull('upload_port', 'uploadPortEntry');
+//    $('#uploadMethodSelect').val(dict['upload_method']); markHideIfNull('upload_method', 'uploadMethodSelect');
+//    $('#uploadLocationEntry').val(dict['upload_location']); markHideIfNull('upload_location', 'uploadLocationEntry');
+//    $('#uploadSubfoldersSwitch')[0].checked = dict['upload_subfolders']; markHideIfNull('upload_subfolders', 'uploadSubfoldersSwitch');
+//    $('#uploadUsernameEntry').val(dict['upload_username']); markHideIfNull('upload_username', 'uploadUsernameEntry');
+//    $('#uploadPasswordEntry').val(dict['upload_password']); markHideIfNull('upload_password', 'uploadPasswordEntry');
+//    $('#uploadAuthorizationKeyEntry').val(dict['upload_authorization_key']); markHideIfNull('upload_authorization_key', 'uploadAuthorizationKeyEntry');
+//    $('#cleanCloudEnabledSwitch')[0].checked = dict['clean_cloud_enabled']; markHideIfNull('clean_cloud_enabled', 'cleanCloudEnabledSwitch');
+//
+//    $('#webHookStorageEnabledSwitch')[0].checked = dict['web_hook_storage_enabled']; markHideIfNull('web_hook_storage_enabled', 'webHookStorageEnabledSwitch');
+//    $('#webHookStorageUrlEntry').val(dict['web_hook_storage_url']);
+//    $('#webHookStorageHttpMethodSelect').val(dict['web_hook_storage_http_method']);
+//
+//    $('#commandStorageEnabledSwitch')[0].checked = dict['command_storage_enabled']; markHideIfNull('command_storage_enabled', 'commandStorageEnabledSwitch');
+//    $('#commandStorageEntry').val(dict['command_storage_exec']);
 
     /* text overlay */
     $('#textOverlayEnabledSwitch')[0].checked = dict['text_overlay']; markHideIfNull('text_overlay', 'textOverlayEnabledSwitch');

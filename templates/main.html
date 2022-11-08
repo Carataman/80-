@@ -308,67 +308,67 @@
                     </table>
 
                     <!-- File Storage -->
-                    <div style="display: none" id="storageSectionDiv">
-                        <span class="help-mark" title="choose where and how your media files are saved">?</span>
-                        <a class="settings-section-title">File Storage</a>
-                        <span class="minimize"></span>
-                    </div>
-                    <table style="display: none">
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Storage Device</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled storage camera-config" id="storageDeviceSelect">
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="indicates the storage device where the image and video files will be saved">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="storageDevice=network-share" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Network Server</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="networkServerEntry"></td>
-                            <td><span class="help-mark" title="the address of the network server (IP address or hostname)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="storageDevice=network-share">
-                            <td class="settings-item-label"><span class="settings-item-label">SMB Protocol Version</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled storage camera-config" id="networkSMBVerSelect">
-                                    <option value="1.0">1.0</option>
-                                    <option value="2.0">2.0</option>
-                                    <option value="2.1">2.1</option>
-                                    <option value="3.0">3.0</option>
-                                    <option value="3.1.1">3.1.1</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="selects the SMB version to be used (test the various options and see which one works best with your NAS)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="storageDevice=network-share" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Share Name</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="networkShareNameEntry"></td>
-                            <td><span class="help-mark" title="the name of the network share">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="storageDevice=network-share" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Share Username</span></td>
-                            <td class="settings-item-value"><input type="text" autocapitalize="none" class="styled storage camera-config" id="networkUsernameEntry"></td>
-                            <td><span class="help-mark" title="the username to be supplied when accessing the network share (leave empty if no username is required)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="storageDevice=network-share" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Share Password</span></td>
-                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="networkPasswordEntry"></td>
-                            <td><span class="help-mark" title="the password required by the network share (leave empty if no password is required)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Root Directory</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="rootDirectoryEntry"></td>
-                            <td><span class="help-mark" title="the root path (on the selected storage device) where the files will be saved">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="storageDevice=network-share">
-                            <td class="settings-item-label"><span class="settings-item-label"></span></td>
-                            <td class="settings-item-value"><div class="button normal-button test-button" id="networkShareTestButton">Test Share</div></td>
-                            <td><span class="help-mark" title="click this button to test the network share connectivity after you have filled in the required details">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td colspan="100"><div class="settings-item-separator"></div></td>
-                        </tr>
-                        <tr class="settings-item">
+<!--                    <div class="settings-section-title" id="storageSectionDiv">-->
+
+<!--                        <a class="settings-section-title">Архив</a>-->
+<!--                        <span class="minimize"></span>-->
+<!--                    </div>-->
+<!--                    <table >-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Storage Device</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled storage camera-config" id="storageDeviceSelect">-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="indicates the storage device where the image and video files will be saved">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="storageDevice=network-share" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Network Server</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="networkServerEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the address of the network server (IP address or hostname)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="storageDevice=network-share">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">SMB Protocol Version</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled storage camera-config" id="networkSMBVerSelect">-->
+<!--                                    <option value="1.0">1.0</option>-->
+<!--                                    <option value="2.0">2.0</option>-->
+<!--                                    <option value="2.1">2.1</option>-->
+<!--                                    <option value="3.0">3.0</option>-->
+<!--                                    <option value="3.1.1">3.1.1</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="selects the SMB version to be used (test the various options and see which one works best with your NAS)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="storageDevice=network-share" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Share Name</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="networkShareNameEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the name of the network share">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="storageDevice=network-share" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Share Username</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" autocapitalize="none" class="styled storage camera-config" id="networkUsernameEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the username to be supplied when accessing the network share (leave empty if no username is required)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="storageDevice=network-share" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Share Password</span></td>-->
+<!--                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="networkPasswordEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the password required by the network share (leave empty if no password is required)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Root Directory</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="rootDirectoryEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the root path (on the selected storage device) where the files will be saved">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="storageDevice=network-share">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
+<!--                            <td class="settings-item-value"><div class="button normal-button test-button" id="networkShareTestButton">Test Share</div></td>-->
+<!--                            <td><span class="help-mark" title="click this button to test the network share connectivity after you have filled in the required details">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
+<!--                        </tr>-->
+<!--                 <tr class="settings-item">
                             <td class="settings-item-label"><span class="settings-item-label">Disk Usage</span></td>
                             <td class="settings-item-value">
                                 <div id="diskUsageProgressBar" class="progress-bar"></div>
@@ -378,142 +378,142 @@
                         <tr class="settings-item">
                             <td colspan="100"><div class="settings-item-separator"></div></td>
                         </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Upload Media Files</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadEnabledSwitch"></td>
-                            <td><span class="help-mark" title="enable this if you want your media files to be uploaded to an external service">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">Upload Pictures</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadPictureSwitch"></td>
-                            <td><span class="help-mark" title="enable this if you want pictures to be uploaded to an external service">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">Upload Movies</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadMovieSwitch"></td>
-                            <td><span class="help-mark" title="enable this if you want videos to be uploaded to an external service">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">Upload Service</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled storage camera-config" id="uploadServiceSelect">
-                                    <option value="ftp">FTP Server</option>
-                                    <option value="sftp">SFTP Server</option>
-    <!--                                 <option value="http">HTTP Server</option> -->
-    <!--                                 <option value="https">HTTPS Server</option> -->
-                                    <option value="gdrive">Google Drive</option>
-                                    <option value="gphoto">Google Photo</option>
-                                    <option value="dropbox">Dropbox</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="choose a service to which the media files should be uploaded">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">
-                            <td class="settings-item-label"><span class="settings-item-label">Server Address</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="uploadServerEntry"></td>
-                            <td><span class="help-mark" title="the domain name or IP address of the server (e.g. ftp.example.com or 192.168.1.3)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" min="1" max="65535" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">
-                            <td class="settings-item-label"><span class="settings-item-label">Server Port</span></td>
-                            <td class="settings-item-value"><input type="text" class="number styled storage camera-config" id="uploadPortEntry"></td>
-                            <td><span class="help-mark" title="the port to use when connecting to the service (leave it empty to use the default value)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(http|https)">
-                            <td class="settings-item-label"><span class="settings-item-label">Method</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled storage camera-config" id="uploadMethodSelect">
-                                    <option value="post">POST</option>
-                                    <option value="put">PUT</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="the HTTP method to use when uploading files">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="uploadEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">Location</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="uploadLocationEntry"></td>
-                            <td><span class="help-mark" title="the location (root path) where media files should be uploaded (e.g. /files/cam1/)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService!=(gphoto)">
-                            <td class="settings-item-label"><span class="settings-item-label">Include Subfolders</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadSubfoldersSwitch"></td>
-                            <td><span class="help-mark" title="enable this to upload the media files together with their subfolders, instead of placing them directly into the root location">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive)">
-                            <td class="settings-item-label"><span class="settings-item-label">Clean Cloud</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="cleanCloudEnabledSwitch"></td>
-                            <td><span class="help-mark" title="enable this to delete the uploaded media files on cloud as well when the local media files get deleted according to file persistence setting, currently this option is available only for gdrive">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">
-                            <td class="settings-item-label"><span class="settings-item-label">Username</span></td>
-                            <td class="settings-item-value"><input type="text" autocapitalize="none" class="styled storage camera-config" id="uploadUsernameEntry"></td>
-                            <td><span class="help-mark" title="the username for the upload service account">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">
-                            <td class="settings-item-label"><span class="settings-item-label">Password</span></td>
-                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="uploadPasswordEntry"></td>
-                            <td><span class="help-mark" title="the password for the upload service account">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive|gphoto|dropbox)">
-                            <td class="settings-item-label"><span class="settings-item-label">Authorization Key</span></td>
-                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="uploadAuthorizationKeyEntry"></td>
-                            <td><span class="help-mark" title="the key used to authenticate with the upload service (normally required only during setup)">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive|gphoto|dropbox)">
-                            <td class="settings-item-label"><span class="settings-item-label"></span></td>
-                            <td class="settings-item-value">
-                                <div class="html styled storage camera-config" id="authorizeLinkHtml">
-                                    <a href="javascript:authorizeUpload()">Obtain Key</a>
-                                </div>
-                            </td>
-                            <td><span class="help-mark" title="click here to obtain the service authorization key">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="uploadEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label"></span></td>
-                            <td class="settings-item-value"><div class="button normal-button test-button" id="uploadTestButton">Test Service</div></td>
-                            <td><span class="help-mark" title="click this button to test the upload service after you have filled in the required details">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td colspan="100"><div class="settings-item-separator"></div></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Call A Web Hook</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="webHookStorageEnabledSwitch"></td>
-                            <td><span class="help-mark" title="enable this if you want a URL to be requested after a media file is created">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="webHookStorageEnabled" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Web Hook URL</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="webHookStorageUrlEntry" placeholder="e.g. http://example.com/notify/"></td>
-                            <td><span class="help-mark" title="a URL to be requested when motion is detected; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, %f = file path">?</span></td>
-                        </tr>
-                        <tr class="settings-item" depends="webHookStorageEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">HTTP Method</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled storage camera-config" id="webHookStorageHttpMethodSelect">
-                                    <option value="GET">GET</option>
-                                    <option value="POST">POST (query)</option>
-                                    <option value="POSTf">POST (form)</option>
-                                    <option value="POSTj">POST (json)</option>
-                                </select>
-                            </td>
-                            <td><span class="help-mark" title="the HTTP method to use when requesting the web hook URL (the given URL-encoded parameters will in fact be transmitted as indicated here)">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td colspan="100"><div class="settings-item-separator"></div></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Run A Command</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="commandStorageEnabledSwitch"></td>
-                            <td><span class="help-mark" title="enable this if you want to execute a command after a media file is created">?</span></td>
-                        </tr>
-                        <tr class="settings-item" required="true" depends="commandStorageEnabled" strip="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Command</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="commandStorageEntry" placeholder="command..."></td>
-                            <td><span class="help-mark" title="a command to be executed after a media file is created; multiple commands can be separated by a semicolon; don't use semicolons inside commands; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, %f = file path">?</span></td>
-                        </tr>
-                        {% for config in camera_sections.get('storage', {}).get('configs', []) %}
-                            {{config_item(config)}}
-                        {% endfor %}
-                    </table>
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Upload Media Files</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadEnabledSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this if you want your media files to be uploaded to an external service">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Upload Pictures</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadPictureSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this if you want pictures to be uploaded to an external service">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Upload Movies</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadMovieSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this if you want videos to be uploaded to an external service">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Upload Service</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled storage camera-config" id="uploadServiceSelect">-->
+<!--                                    <option value="ftp">FTP Server</option>-->
+<!--                                    <option value="sftp">SFTP Server</option>-->
+<!--    &lt;!&ndash;                                 <option value="http">HTTP Server</option> &ndash;&gt;-->
+<!--    &lt;!&ndash;                                 <option value="https">HTTPS Server</option> &ndash;&gt;-->
+<!--                                    <option value="gdrive">Google Drive</option>-->
+<!--                                    <option value="gphoto">Google Photo</option>-->
+<!--                                    <option value="dropbox">Dropbox</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="choose a service to which the media files should be uploaded">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Server Address</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="uploadServerEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the domain name or IP address of the server (e.g. ftp.example.com or 192.168.1.3)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" min="1" max="65535" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Server Port</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="number styled storage camera-config" id="uploadPortEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the port to use when connecting to the service (leave it empty to use the default value)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(http|https)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Method</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled storage camera-config" id="uploadMethodSelect">-->
+<!--                                    <option value="post">POST</option>-->
+<!--                                    <option value="put">PUT</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="the HTTP method to use when uploading files">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="uploadEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Location</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="uploadLocationEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the location (root path) where media files should be uploaded (e.g. /files/cam1/)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService!=(gphoto)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Include Subfolders</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="uploadSubfoldersSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this to upload the media files together with their subfolders, instead of placing them directly into the root location">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Clean Cloud</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="cleanCloudEnabledSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this to delete the uploaded media files on cloud as well when the local media files get deleted according to file persistence setting, currently this option is available only for gdrive">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Username</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" autocapitalize="none" class="styled storage camera-config" id="uploadUsernameEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the username for the upload service account">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(ftp|sftp|http|https)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Password</span></td>-->
+<!--                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="uploadPasswordEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the password for the upload service account">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive|gphoto|dropbox)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Authorization Key</span></td>-->
+<!--                            <td class="settings-item-value"><input type="password" autocomplete="new-password" class="styled storage camera-config" id="uploadAuthorizationKeyEntry"></td>-->
+<!--                            <td><span class="help-mark" title="the key used to authenticate with the upload service (normally required only during setup)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled uploadService=(gdrive|gphoto|dropbox)">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <div class="html styled storage camera-config" id="authorizeLinkHtml">-->
+<!--                                    <a href="javascript:authorizeUpload()">Obtain Key</a>-->
+<!--                                </div>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="click here to obtain the service authorization key">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="uploadEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label"></span></td>-->
+<!--                            <td class="settings-item-value"><div class="button normal-button test-button" id="uploadTestButton">Test Service</div></td>-->
+<!--                            <td><span class="help-mark" title="click this button to test the upload service after you have filled in the required details">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Call A Web Hook</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="webHookStorageEnabledSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this if you want a URL to be requested after a media file is created">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="webHookStorageEnabled" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Web Hook URL</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="webHookStorageUrlEntry" placeholder="e.g. http://example.com/notify/"></td>-->
+<!--                            <td><span class="help-mark" title="a URL to be requested when motion is detected; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, %f = file path">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" depends="webHookStorageEnabled">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">HTTP Method</span></td>-->
+<!--                            <td class="settings-item-value">-->
+<!--                                <select class="styled storage camera-config" id="webHookStorageHttpMethodSelect">-->
+<!--                                    <option value="GET">GET</option>-->
+<!--                                    <option value="POST">POST (query)</option>-->
+<!--                                    <option value="POSTf">POST (form)</option>-->
+<!--                                    <option value="POSTj">POST (json)</option>-->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td><span class="help-mark" title="the HTTP method to use when requesting the web hook URL (the given URL-encoded parameters will in fact be transmitted as indicated here)">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td colspan="100"><div class="settings-item-separator"></div></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Run A Command</span></td>-->
+<!--                            <td class="settings-item-value"><input type="checkbox" class="styled storage camera-config" id="commandStorageEnabledSwitch"></td>-->
+<!--                            <td><span class="help-mark" title="enable this if you want to execute a command after a media file is created">?</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr class="settings-item" required="true" depends="commandStorageEnabled" strip="true">-->
+<!--                            <td class="settings-item-label"><span class="settings-item-label">Command</span></td>-->
+<!--                            <td class="settings-item-value"><input type="text" class="styled storage camera-config" id="commandStorageEntry" placeholder="command..."></td>-->
+<!--                            <td><span class="help-mark" title="a command to be executed after a media file is created; multiple commands can be separated by a semicolon; don't use semicolons inside commands; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, %f = file path">?</span></td>-->
+<!--                        </tr>-->
+<!--                        {% for config in camera_sections.get('storage', {}).get('configs', []) %}-->
+<!--                            {{config_item(config)}}-->
+<!--                        {% endfor %}-->
+<!--                    </table>-->
 
                     <!-- Text Overlay -->
                     <div class="settings-section-title" id="textOverlaySectionDiv">
@@ -646,74 +646,7 @@
                         {% endfor %}
                     </table>
 
-                    <!-- Still Images -->
-<!--                    <div class="settings-section-title" id="stillImagesSectionDiv">-->
-<!--                        <input type="checkbox" class="styled section still-images camera-config" id="stillImagesEnabledSwitch">-->
-<!--                        <span class="help-mark" title="enable this if you want to capture still images (pictures)">?</span>-->
-<!--                        <a class="settings-section-title">Still Images</a>-->
-<!--                        <span class="minimize"></span>-->
-<!--                    </div>-->
-<!--                    <table class="settings">-->
-<!--                        <tr class="settings-item" required="true" strip="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Image File Name</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled still-images camera-config" id="imageFileNameEntry" placeholder="file name pattern..."></td>-->
-<!--                            <td><span class="help-mark" title="sets the name pattern for the image (JPEG) files; the following special tokens are accepted: %Y = year, %m = month, %d = day, %H = hour, %M = minute, %S = second, %q = frame number, %v = event number, / = subfolder">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Image Quality</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled still-images camera-config" id="imageQualitySlider"></td>-->
-<!--                            <td><span class="help-mark" title="sets the JPEG image quality (higher values produce a better image quality but require more storage space)">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Capture Mode</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <select class="styled still-images camera-config" id="captureModeSelect">-->
-<!--                                    <option value="motion-triggered">Motion Triggered</option>-->
-<!--                                    <option value="motion-triggered-one">Motion Triggered (One Picture)</option>-->
-<!--                                    <option value="interval-snapshots">Interval Snapshots</option>-->
-<!--                                    <option value="all-frames">All Frames</option>-->
-<!--                                    <option value="manual">Manual</option>-->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="sets the image capture mode:-->
-<!--                                    Motion Triggered = an image captured whenever motion is detected,-->
-<!--                                    Interval Snapshots = an image captured every x seconds,-->
-<!--                                    All Frames = saves each frame to an image file,-->
-<!--                                    Manual = manual snapshots using snapshot button">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="1" max="86400" required="true" depends="captureMode=interval-snapshots">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Snapshot Interval</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="snapshotIntervalEntry"><span class="settings-item-unit">seconds</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the interval (in seconds) for the snapshots">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Preserve Pictures</span></td>-->
-<!--                            <td class="settings-item-value">-->
-<!--                                <select class="styled still-images camera-config" id="preservePicturesSelect">-->
-<!--                                    <option value="1">For One Day</option>-->
-<!--                                    <option value="7">For One Week</option>-->
-<!--                                    <option value="30">For One Month</option>-->
-<!--                                    <option value="365">For One Year</option>-->
-<!--                                    <option value="0">Forever</option>-->
-<!--                                    <option value="-1">Custom</option>-->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td><span class="help-mark" title="images older than the specified duration are automatically deleted to free up storage space">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item" min="1" max="3650" depends="preservePictures=-1" required="true">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Pictures Lifetime</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="styled number still-images camera-config" id="picturesLifetimeEntry"><span class="settings-item-unit">days</span></td>-->
-<!--                            <td><span class="help-mark" title="sets the number of days after which the pictures will be deleted automatically">?</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr class="settings-item">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Enable Manual Snapshots</span></td>-->
-<!--                            <td class="settings-item-value"><input type="checkbox" class="styled still-images camera-config" id="manualSnapshotsSwitch"></td>-->
-<!--                            <td><span class="help-mark" title="when this is enabled, a button on the camera frame will allow you to manually take snapshots">?</span></td>-->
-<!--                        </tr>-->
-<!--                        {% for config in camera_sections.get('still-images', {}).get('configs', []) %}-->
-<!--                            {{config_item(config)}}-->
-<!--                        {% endfor %}-->
-<!--                    </table>-->
+
 
                     <!-- Movies -->
                     <div class="settings-section-title" id="moviesSectionDiv">

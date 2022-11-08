@@ -691,24 +691,24 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         'rotate': int(ui['rotation']),
 
         # file storage
-        '@storage_device': ui['storage_device'],
-        '@network_server': ui['network_server'],
-        '@network_share_name': ui['network_share_name'],
-        '@network_smb_ver': ui['network_smb_ver'],
-        '@network_username': ui['network_username'],
-        '@network_password': ui['network_password'],
-        '@upload_enabled': ui['upload_enabled'],
-        '@upload_movie': ui['upload_movie'],
-        '@upload_picture': ui['upload_picture'],
-        '@upload_service': ui['upload_service'],
-        '@upload_server': ui['upload_server'],
-        '@upload_port': ui['upload_port'],
-        '@upload_method': ui['upload_method'],
-        '@upload_location': ui['upload_location'],
-        '@upload_subfolders': ui['upload_subfolders'],
-        '@upload_username': ui['upload_username'],
-        '@upload_password': ui['upload_password'],
-        '@clean_cloud_enabled': ui['clean_cloud_enabled'],
+        # '@storage_device': ui['storage_device'],
+        # '@network_server': ui['network_server'],
+        # '@network_share_name': ui['network_share_name'],
+        # '@network_smb_ver': ui['network_smb_ver'],
+        # '@network_username': ui['network_username'],
+        # '@network_password': ui['network_password'],
+        # '@upload_enabled': ui['upload_enabled'],
+        # '@upload_movie': ui['upload_movie'],
+        # '@upload_picture': ui['upload_picture'],
+        # '@upload_service': ui['upload_service'],
+        # '@upload_server': ui['upload_server'],
+        # '@upload_port': ui['upload_port'],
+        # '@upload_method': ui['upload_method'],
+        # '@upload_location': ui['upload_location'],
+        # '@upload_subfolders': ui['upload_subfolders'],
+        # '@upload_username': ui['upload_username'],
+        # '@upload_password': ui['upload_password'],
+        # '@clean_cloud_enabled': ui['clean_cloud_enabled'],
 
         # text overlay
         'text_left': '',
@@ -815,42 +815,42 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
     # data['threshold'] = threshold
 
 
-    if (ui['storage_device'] == 'network-share') and settings.SMB_SHARES:
-        mount_point = smbctl.make_mount_point(ui['network_server'], ui['network_share_name'], ui['network_username'])
-        if ui['root_directory'].startswith('/'):
-            ui['root_directory'] = ui['root_directory'][1:]
-        data['target_dir'] = os.path.normpath(os.path.join(mount_point, ui['root_directory']))
-
-    elif ui['storage_device'].startswith('local-disk'):
-        target_dev = ui['storage_device'][10:].replace('-', '/')
-        mounted_partitions = diskctl.list_mounted_partitions()
-        partition = mounted_partitions[target_dev]
-        mount_point = partition['mount_point']
-
-        if ui['root_directory'].startswith('/'):
-            ui['root_directory'] = ui['root_directory'][1:]
-        data['target_dir'] = os.path.normpath(os.path.join(mount_point, ui['root_directory']))
-
-    else:
-        data['target_dir'] = ui['root_directory']
-
-    # try to create the target dir
-    try:
-        os.makedirs(data['target_dir'])
-        logging.debug('created root directory %s for camera %s' % (data['target_dir'], data['camera_name']))
-
-    except OSError as e:
-        if isinstance(e, OSError) and e.errno == errno.EEXIST:
-            pass  # already exists, things should be just fine
-
-        else:
-            logging.error('failed to create root directory "%s": %s' % (data['target_dir'], e), exc_info=True)
-
-    if ui['upload_enabled'] and '@id' in prev_config:
-        upload_settings = {k[7:]: ui[k] for k in ui.iterkeys() if k.startswith('upload_')}
-
-        tasks.add(0, uploadservices.update, tag='uploadservices.update(%s)' % ui['upload_service'],
-                  camera_id=prev_config['@id'], service_name=ui['upload_service'], settings=upload_settings)
+    # if (ui['storage_device'] == 'network-share') and settings.SMB_SHARES:
+    #     mount_point = smbctl.make_mount_point(ui['network_server'], ui['network_share_name'], ui['network_username'])
+    #     if ui['root_directory'].startswith('/'):
+    #         ui['root_directory'] = ui['root_directory'][1:]
+    #     data['target_dir'] = os.path.normpath(os.path.join(mount_point, ui['root_directory']))
+    #
+    # elif ui['storage_device'].startswith('local-disk'):
+    #     target_dev = ui['storage_device'][10:].replace('-', '/')
+    #     mounted_partitions = diskctl.list_mounted_partitions()
+    #     partition = mounted_partitions[target_dev]
+    #     mount_point = partition['mount_point']
+    #
+    #     if ui['root_directory'].startswith('/'):
+    #         ui['root_directory'] = ui['root_directory'][1:]
+    #     data['target_dir'] = os.path.normpath(os.path.join(mount_point, ui['root_directory']))
+    #
+    # else:
+    #     data['target_dir'] = ui['root_directory']
+    #
+    # # try to create the target dir
+    # try:
+    #     os.makedirs(data['target_dir'])
+    #     logging.debug('created root directory %s for camera %s' % (data['target_dir'], data['camera_name']))
+    #
+    # except OSError as e:
+    #     if isinstance(e, OSError) and e.errno == errno.EEXIST:
+    #         pass  # already exists, things should be just fine
+    #
+    #     else:
+    #         logging.error('failed to create root directory "%s": %s' % (data['target_dir'], e), exc_info=True)
+    #
+    # if ui['upload_enabled'] and '@id' in prev_config:
+    #     upload_settings = {k[7:]: ui[k] for k in ui.iterkeys() if k.startswith('upload_')}
+    #
+    #     tasks.add(0, uploadservices.update, tag='uploadservices.update(%s)' % ui['upload_service'],
+    #               camera_id=prev_config['@id'], service_name=ui['upload_service'], settings=upload_settings)
 
     if ui['text_overlay']:
         left_text = ui['left_text']
@@ -1007,18 +1007,18 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
     # picture save
     on_picture_save = ['%(script)s picture_save %%t %%f' % {'script': meyectl.find_command('relayevent')}]
 
-    if ui['web_hook_storage_enabled']:
-        url = re.sub('\\s', '+', ui['web_hook_storage_url'])
-
-        on_picture_save.append("%(script)s '%(method)s' '%(url)s'" % {
-            'script': meyectl.find_command('webhook'),
-            'method': ui['web_hook_storage_http_method'],
-            'url': url})
-
-    if ui['command_storage_enabled']:
-        on_picture_save += utils.split_semicolon(ui['command_storage_exec'])
-
-    data['on_picture_save'] = '; '.join(on_picture_save)
+    # if ui['web_hook_storage_enabled']:
+    #     url = re.sub('\\s', '+', ui['web_hook_storage_url'])
+    #
+    #     on_picture_save.append("%(script)s '%(method)s' '%(url)s'" % {
+    #         'script': meyectl.find_command('webhook'),
+    #         'method': ui['web_hook_storage_http_method'],
+    #         'url': url})
+    #
+    # if ui['command_storage_enabled']:
+    #     on_picture_save += utils.split_semicolon(ui['command_storage_exec'])
+    #
+    # data['on_picture_save'] = '; '.join(on_picture_save)
 
     # additional configs
     for name, value in ui.iteritems():
