@@ -111,11 +111,7 @@
                         <span class="minimize open"></span>
                     </div>
                     <table class="settings">
-<!--                        <tr class="settings-item" min="1" max="4" snap="1" ticksnum="4" decimals="0" id="layoutColumnsRow">-->
-<!--                            <td class="settings-item-label"><span class="settings-item-label">Layout Columns</span></td>-->
-<!--                            <td class="settings-item-value"><input type="text" class="range styled prefs" id="layoutColumnsSlider"></td>-->
 
-<!--                        </tr>-->
                         <tr style="display: none">
                             <td class="settings-item-label"><span class="settings-item-label">Fit Frames Vertically</span></td>
                             <td class="settings-item-value"><input type="checkbox" class="styled prefs" id="fitFramesVerticallySwitch"></td>
@@ -341,90 +337,6 @@
                             {{config_item(config)}}
                         {% endfor %}
                     </table>
-
-                    <!-- Video Streaming -->
-                    <div class="settings-section-title" minimize-switch-independent="true" id="streamingSectionDiv">
-                        <input type="checkbox" class="styled section streaming camera-config" id="videoStreamingEnabledSwitch">
-                        <a class="settings-section-title">Трансляция</a>
-                        <span class="minimize"></span>
-                    </div>
-                    <table class="settings">
-                        <tr class="settings-item" min="1" max="15" snap="0" ticks="1|5|10|15" decimals="0">
-                            <td class="settings-item-label"><span class="settings-item-label">Частота кадров</span></td>
-                            <td class="settings-item-value"><input type="text" class="range styled streaming camera-config" id="streamingFramerateSlider"></td>
-
-                        </tr>
-                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%">
-                            <td class="settings-item-label"><span class="settings-item-label">Качество потока</span></td>
-                            <td class="settings-item-value"><input type="text" class="range styled streaming camera-config" id="streamingQualitySlider"></td>
-                        </tr>
-                        <tr style="display: none">
-                            <td class="settings-item-label"><span class="settings-item-label">Изменение изображения</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled streaming camera-config" id="streamingServerResizeSwitch"></td>
-
-                        </tr>
-                        <tr class="settings-item" min="0" max="100" snap="2" ticksnum="5" decimals="0" unit="%" depends="streamingServerResize">
-                            <td class="settings-item-label"><span class="settings-item-label">Streaming Resolution</span></td>
-                            <td class="settings-item-value"><input type="text" class="range styled streaming camera-config" id="streamingResolutionSlider"></td>
-
-                        </tr>
-                        <tr class="settings-item" min="1024" max="65535" depends="videoStreamingEnabled" required="true">
-                            <td class="settings-item-label"><span class="settings-item-label">Порт</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled streaming camera-config" id="streamingPortEntry"></td>
-                        </tr>
-                        <tr style="display: none" depends="videoStreamingEnabled">
-                            <td class="settings-item-label"><span class="settings-item-label">Authentication Mode</span></td>
-                            <td class="settings-item-value">
-                                <select class="styled streaming camera-config" id="streamingAuthModeSelect">
-                                    <option value="disabled">Disabled</option>
-                                    <option value="basic">Basic</option>
-                                    <option value="digest">Digest</option>
-                                </select>
-                            </td>
-
-                        </tr>
-                        <tr style="display: none">
-                            <td class="settings-item-label"><span class="settings-item-label">Motion Optimization</span></td>
-                            <td class="settings-item-value"><input type="checkbox" class="styled streaming camera-config" id="streamingMotion"></td>
-
-                        </tr>
-                        <tr class="settings-item" depends="videoStreamingEnabled">
-                            <td colspan="100"><div class="settings-item-separator"></div></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Useful URLs</span></td>
-                            <td class="settings-item-value">
-                                <div class="html styled streaming camera-config" id="streamingSnapshotUrlHtml">
-                                    <a href="javascript:showSnapshotUrl()">Snapshot URL</a>
-                                </div>
-                            </td>
-                            <td><span class="help-mark" title="a URL that provides a JPEG image with the most recent snapshot of the camera">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"></td>
-                            <td class="settings-item-value">
-                                <div class="html styled streaming camera-config" id="streamingMjpgUrlHtml">
-                                    <a href="javascript:showMjpgUrl()">Streaming URL</a>
-                                </div>
-                            </td>
-                            <td><span class="help-mark" title="a URL that provides a MJPEG stream of the camera">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td class="settings-item-label"></td>
-                            <td class="settings-item-value">
-                                <div class="html styled streaming camera-config" id="streamingEmbedUrlHtml">
-                                    <a href="javascript:showEmbedUrl()">Embed URL</a>
-                                </div>
-                            </td>
-                            <td><span class="help-mark" title="a URL that provides a minimal HTML document containing the camera frame, ready to be embedded">?</span></td>
-                        </tr>
-                        {% for config in camera_sections.get('streaming', {}).get('configs', []) %}
-                            {{config_item(config)}}
-                        {% endfor %}
-                    </table>
-
-
-
                     <!-- Movies -->
                     <div class="settings-section-title" id="moviesSectionDiv">
                         <input type="checkbox" class="styled section movies camera-config" id="moviesEnabledSwitch">
@@ -460,11 +372,10 @@
 
                         </tr>
                         <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Recording Mode</span></td>
+                            <td class="settings-item-label"><span class="settings-item-label">Режим записи</span></td>
                             <td class="settings-item-value">
                                 <select class="styled movies camera-config" id="recordingModeSelect">
-                                    <option value="motion-triggered">Motion Triggered</option>
-                                    <option value="continuous">Continuous Recording</option>
+                                   <option value="continuous">Постоянная запись</option>
                                 </select>
                             </td>
                             <td><span class="help-mark" title="sets the recording mode: Motion Triggered = a new movie created whenever motion is detected, Continuous Recording = one big movie file">?</span></td>

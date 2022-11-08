@@ -1930,14 +1930,14 @@ function cameraUi2Dict() {
         'text_scale': $('#textScaleSlider').val(),
 
         /* video streaming */
-        'video_streaming': $('#videoStreamingEnabledSwitch')[0].checked,
-        'streaming_framerate': $('#streamingFramerateSlider').val(),
-        'streaming_quality': $('#streamingQualitySlider').val(),
-        'streaming_resolution': $('#streamingResolutionSlider').val(),
-        'streaming_server_resize': $('#streamingServerResizeSwitch')[0].checked,
-        'streaming_port': $('#streamingPortEntry').val(),
-        'streaming_auth_mode': $('#streamingAuthModeSelect').val() || 'disabled', /* compatibility with old motion */
-        'streaming_motion': $('#streamingMotion')[0].checked,
+//        'video_streaming': $('#videoStreamingEnabledSwitch')[0].checked,
+//        'streaming_framerate': $('#streamingFramerateSlider').val(),
+//        'streaming_quality': $('#streamingQualitySlider').val(),
+//        'streaming_resolution': $('#streamingResolutionSlider').val(),
+//        'streaming_server_resize': $('#streamingServerResizeSwitch')[0].checked,
+//        'streaming_port': $('#streamingPortEntry').val(),
+//        'streaming_auth_mode': $('#streamingAuthModeSelect').val() || 'disabled', /* compatibility with old motion */
+//        'streaming_motion': $('#streamingMotion')[0].checked,
 
         /* still images */
 //        'still_images': $('#stillImagesEnabledSwitch')[0].checked,
@@ -2255,46 +2255,46 @@ function dict2CameraUi(dict) {
     $('#textScaleSlider').val(dict['text_scale']); markHideIfNull('text_scale', 'textScaleSlider');
 
     /* video streaming */
-    $('#videoStreamingEnabledSwitch')[0].checked = dict['video_streaming']; markHideIfNull('video_streaming', 'videoStreamingEnabledSwitch');
-    $('#streamingFramerateSlider').val(dict['streaming_framerate']); markHideIfNull('streaming_framerate', 'streamingFramerateSlider');
-    $('#streamingQualitySlider').val(dict['streaming_quality']); markHideIfNull('streaming_quality', 'streamingQualitySlider');
-    $('#streamingResolutionSlider').val(dict['streaming_resolution']); markHideIfNull('streaming_resolution', 'streamingResolutionSlider');
-    $('#streamingServerResizeSwitch')[0].checked = dict['streaming_server_resize']; markHideIfNull('streaming_server_resize', 'streamingServerResizeSwitch');
-    $('#streamingPortEntry').val(dict['streaming_port']); markHideIfNull('streaming_port', 'streamingPortEntry');
-    $('#streamingAuthModeSelect').val(dict['streaming_auth_mode']); markHideIfNull('streaming_auth_mode', 'streamingAuthModeSelect');
-    $('#streamingMotion')[0].checked = dict['streaming_motion']; markHideIfNull('streaming_motion', 'streamingMotion');
-
-    var cameraUrl = location.protocol + '//' + location.host + basePath + 'picture/' + dict.id + '/';
-
-    var snapshotUrl = null;
-    var mjpgUrl = null;
-    var embedUrl = null;
-
-    if (dict['proto'] == 'mjpeg') {
-        mjpgUrl = dict['url'];
-        mjpgUrl = mjpgUrl.replace('127.0.0.1', window.location.host.split(':')[0]);
-        embedUrl = cameraUrl + 'frame/';
-    }
-    else {
-        snapshotUrl = cameraUrl + 'current/';
-        mjpgUrl = location.protocol + '//' + location.host.split(':')[0] + ':' + dict.streaming_port;
-        embedUrl = cameraUrl + 'frame/';
-    }
-
-    if (dict.proto == 'motioneye') {
-        /* cannot tell the mjpg streaming url for a remote motionEye camera */
-        mjpgUrl = '';
-    }
-
-    if ($('#normalPasswordEntry').val()) { /* anonymous access is disabled */
-        if (snapshotUrl) {
-            snapshotUrl = addAuthParams('GET', snapshotUrl);
-        }
-    }
-
-    $('#streamingSnapshotUrlHtml').data('url', snapshotUrl); markHideIfNull(!snapshotUrl, 'streamingSnapshotUrlHtml');
-    $('#streamingMjpgUrlHtml').data('url', mjpgUrl); markHideIfNull(!mjpgUrl, 'streamingMjpgUrlHtml');
-    $('#streamingEmbedUrlHtml').data('url', embedUrl); markHideIfNull(!embedUrl, 'streamingEmbedUrlHtml');
+//    $('#videoStreamingEnabledSwitch')[0].checked = dict['video_streaming']; markHideIfNull('video_streaming', 'videoStreamingEnabledSwitch');
+//    $('#streamingFramerateSlider').val(dict['streaming_framerate']); markHideIfNull('streaming_framerate', 'streamingFramerateSlider');
+//    $('#streamingQualitySlider').val(dict['streaming_quality']); markHideIfNull('streaming_quality', 'streamingQualitySlider');
+//    $('#streamingResolutionSlider').val(dict['streaming_resolution']); markHideIfNull('streaming_resolution', 'streamingResolutionSlider');
+//    $('#streamingServerResizeSwitch')[0].checked = dict['streaming_server_resize']; markHideIfNull('streaming_server_resize', 'streamingServerResizeSwitch');
+//    $('#streamingPortEntry').val(dict['streaming_port']); markHideIfNull('streaming_port', 'streamingPortEntry');
+//    $('#streamingAuthModeSelect').val(dict['streaming_auth_mode']); markHideIfNull('streaming_auth_mode', 'streamingAuthModeSelect');
+//    $('#streamingMotion')[0].checked = dict['streaming_motion']; markHideIfNull('streaming_motion', 'streamingMotion');
+//
+//    var cameraUrl = location.protocol + '//' + location.host + basePath + 'picture/' + dict.id + '/';
+//
+//    var snapshotUrl = null;
+//    var mjpgUrl = null;
+//    var embedUrl = null;
+//
+//    if (dict['proto'] == 'mjpeg') {
+//        mjpgUrl = dict['url'];
+//        mjpgUrl = mjpgUrl.replace('127.0.0.1', window.location.host.split(':')[0]);
+//        embedUrl = cameraUrl + 'frame/';
+//    }
+//    else {
+//        snapshotUrl = cameraUrl + 'current/';
+//        mjpgUrl = location.protocol + '//' + location.host.split(':')[0] + ':' + dict.streaming_port;
+//        embedUrl = cameraUrl + 'frame/';
+//    }
+//
+//    if (dict.proto == 'motioneye') {
+//        /* cannot tell the mjpg streaming url for a remote motionEye camera */
+//        mjpgUrl = '';
+//    }
+//
+//    if ($('#normalPasswordEntry').val()) { /* anonymous access is disabled */
+//        if (snapshotUrl) {
+//            snapshotUrl = addAuthParams('GET', snapshotUrl);
+//        }
+//    }
+//
+//    $('#streamingSnapshotUrlHtml').data('url', snapshotUrl); markHideIfNull(!snapshotUrl, 'streamingSnapshotUrlHtml');
+//    $('#streamingMjpgUrlHtml').data('url', mjpgUrl); markHideIfNull(!mjpgUrl, 'streamingMjpgUrlHtml');
+//    $('#streamingEmbedUrlHtml').data('url', embedUrl); markHideIfNull(!embedUrl, 'streamingEmbedUrlHtml');
 
     /* still images */
 //    $('#stillImagesEnabledSwitch')[0].checked = dict['still_images']; markHideIfNull('still_images', 'stillImagesEnabledSwitch');

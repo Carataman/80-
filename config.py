@@ -716,15 +716,15 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         'text_scale': ui['text_scale'],
 
         # streaming
-        'stream_localhost': not ui['video_streaming'],
-        'stream_port': int(ui['streaming_port']),
-        'stream_maxrate': int(ui['streaming_framerate']),
-        'stream_quality': max(1, int(ui['streaming_quality'])),
-        '@webcam_resolution': max(1, int(ui['streaming_resolution'])),
-        '@webcam_server_resize': ui['streaming_server_resize'],
-        'stream_motion': ui['streaming_motion'],
-        'stream_auth_method': {'disabled': 0, 'basic': 1, 'digest': 2}.get(ui['streaming_auth_mode'], 0),
-        'stream_authentication': main_config['@normal_username'] + ':' + main_config['@normal_password'],
+        # 'stream_localhost': not ui['video_streaming'],
+        # 'stream_port': int(ui['streaming_port']),
+        # 'stream_maxrate': int(ui['streaming_framerate']),
+        # 'stream_quality': max(1, int(ui['streaming_quality'])),
+        # '@webcam_resolution': max(1, int(ui['streaming_resolution'])),
+        # '@webcam_server_resize': ui['streaming_server_resize'],
+        # 'stream_motion': ui['streaming_motion'],
+        # 'stream_auth_method': {'disabled': 0, 'basic': 1, 'digest': 2}.get(ui['streaming_auth_mode'], 0),
+        # 'stream_authentication': main_config['@normal_username'] + ':' + main_config['@normal_password'],
 
         # still images
         # 'picture_output': False,
