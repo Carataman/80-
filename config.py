@@ -686,7 +686,7 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         # device
         'camera_name': ui['name'],
         '@enabled': ui['enabled'],
-        'auto_brightness': ui['auto_brightness'],
+        # 'auto_brightness': ui['auto_brightness'],
         'framerate': int(ui['framerate']),
         'rotate': int(ui['rotation']),
 
