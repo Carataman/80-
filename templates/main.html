@@ -113,12 +113,12 @@
                     <table class="settings">
 
                         <tr style="display: none">
-                            <td class="settings-item-label"><span class="settings-item-label">Fit Frames Vertically</span></td>
+                            <td class="settings-item-label"><span class="settings-item-label">Вертикаль</span></td>
                             <td class="settings-item-value"><input type="checkbox" class="styled prefs" id="fitFramesVerticallySwitch"></td>
 
                         </tr>
                         <tr class="settings-item" min="1" max="4" snap="1" ticksnum="4" decimals="0" id="layoutRows" depends="fitFramesVertically">
-                            <td class="settings-item-label"><span class="settings-item-label">Layout Rows</span></td>
+                            <td class="settings-item-label"><span class="settings-item-label">Горизонтальs</span></td>
                             <td class="settings-item-value"><input type="text" class="range styled prefs" id="layoutRowsSlider"></td>
 
                         </tr>
@@ -168,26 +168,7 @@
                             <td class="settings-item-value"><span class="settings-item-label">{{version}}</span></td>
                         </tr>
 
-                        {% if enable_update %}
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Software Update</span></td>
-                            <td class="settings-item-value"><div class="button normal-button update-button" id="updateButton">Check</div></td>
-                            <td><span class="help-mark" title="checks for new versions and performs updates">?</span></td>
-                        </tr>
-                        {% endif %}
-                        <tr class="settings-item{% if not enable_reboot %} hidden{% endif %}">
-                            <td class="settings-item-label"><span class="settings-item-label">Power</span></td>
-                            <td class="settings-item-value"><div class="button normal-button shut-down-button" id="shutDownButton">Shut Down</div></td>
-                            <td><span class="help-mark" title="shuts down the system">?</span></td>
-                        </tr>
-                        <tr class="settings-item{% if not enable_reboot %} hidden{% endif %}">
-                            <td class="settings-item-label"><span class="settings-item-label"></span></td>
-                            <td class="settings-item-value"><div class="button normal-button reboot-button" id="rebootButton">Reboot</div></td>
-                            <td><span class="help-mark" title="reboots the system">?</span></td>
-                        </tr>
-                        <tr class="settings-item">
-                            <td colspan="100"><div class="settings-item-separator"></div></td>
-                        </tr>
+
                         <tr class="settings-item">
                             <td class="settings-item-label"><span class="settings-item-label">Конфигурация</span></td>
                             <td class="settings-item-value"><div class="button normal-button backup-button" id="backupButton">Сохранить</div></td>
@@ -231,8 +212,7 @@
                     <table class="settings">
                         <tr class="settings-item" required="true" strip="true">
                             <td class="settings-item-label"><span class="settings-item-label">Имя камеры</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled device camera-config" id="deviceNameEntry" placeholder="camera name..."></td>
-
+                            <td class="settings-item-value"><input type="text" class="styled device camera-config" id="deviceNameEntry" placeholder="имя камеры..."></td>
                         </tr>
                         <tr class="settings-item" required="true" strip="true">
                             <td class="settings-item-label"><span class="settings-item-label">ID камеры</span></td>
@@ -262,19 +242,8 @@
                             </td>
 
                         </tr>
-<
-                        <tr class="settings-item">
-                            <td class="settings-item-label"><span class="settings-item-label">Поворот видео</span></td>
-                            <td class="settings-item-value">
-                                <select class="rotation styled device camera-config" id="rotationSelect">
-                                    <option value="0">0&deg;</option>
-                                    <option value="90">90&deg;</option>
-                                    <option value="180">180&deg;</option>
-                                    <option value="270">270&deg;</option>
-                                </select>
-                            </td>
 
-                        </tr>
+
                         <tr class="settings-item" min="5" max="15" snap="0" ticks="5|10|15" decimals="0">
                             <td class="settings-item-label"><span class="settings-item-label">Частота кадров</span></td>
                             <td class="settings-item-value"><input type="text" class="range styled device camera-config" id="framerateSlider"></td>
@@ -309,7 +278,7 @@
                         </tr>
                         <tr class="settings-item" required="true" depends="leftTextType=custom-text" strip="true">
                             <td class="settings-item-label"></td>
-                            <td class="settings-item-value"><input type="text" class="styled text-overlay camera-config" id="leftTextEntry" placeholder="custom text..."></td>
+                            <td class="settings-item-value"><input type="text" class="styled text-overlay camera-config" id="leftTextEntry" placeholder="свой текст..."></td>
 
                         </tr>
                         <tr class="settings-item">
@@ -325,7 +294,7 @@
                         </tr>
                         <tr class="settings-item" required="true" depends="rightTextType=custom-text" strip="true">
                             <td class="settings-item-label"></td>
-                            <td class="settings-item-value"><input type="text" class="styled text-overlay camera-config" id="rightTextEntry" placeholder="custom text..."></td>
+                            <td class="settings-item-value"><input type="text" class="styled text-overlay camera-config" id="rightTextEntry" placeholder="свой текст..."></td>
 
                         </tr>
                         <tr class="settings-item" min="1" max="10" snap="1" ticksnum="10" decimals="0">
@@ -347,7 +316,7 @@
                     <table class="settings">
                         <tr class="settings-item" required="true" strip="true">
                             <td class="settings-item-label"><span class="settings-item-label">Имя файла</span></td>
-                            <td class="settings-item-value"><input type="text" class="styled movies camera-config" id="movieFileNameEntry" placeholder="file name pattern..."></td>
+                            <td class="settings-item-value"><input type="text" class="styled movies camera-config" id="movieFileNameEntry" placeholder="имя файла..."></td>
                             <td><span class="help-mark" title="задайте имя сохраняемого файла: %Y = год, %m = месяц, %d = день, %H = час, %M = минуты, %S = секунды">?</span></td>
                         </tr>
                         <tr class="settings-item">
@@ -361,7 +330,6 @@
                                 <select class="styled movies camera-config" id="movieFormatSelect" >
                                     <option value="mpeg4">MPEG4 (.avi)</option>
                                     <option value="mp4">H.264 (.mp4)</option>
-
                                 </select>
                             </td>
 
@@ -378,7 +346,7 @@
                                    <option value="continuous">Постоянная запись</option>
                                 </select>
                             </td>
-                            <td><span class="help-mark" title="sets the recording mode: Motion Triggered = a new movie created whenever motion is detected, Continuous Recording = one big movie file">?</span></td>
+
                         </tr>
                         <tr class="settings-item" min="0" max="86400" required="true">
                             <td class="settings-item-label"><span class="settings-item-label">Длительность записи</span></td>

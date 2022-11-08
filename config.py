@@ -688,7 +688,7 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
         '@enabled': ui['enabled'],
         # 'auto_brightness': ui['auto_brightness'],
         'framerate': int(ui['framerate']),
-        'rotate': int(ui['rotation']),
+        # 'rotate': int(ui['rotation']),
 
         # file storage
         # '@storage_device': ui['storage_device'],
@@ -799,13 +799,13 @@ def motion_camera_ui_to_dict(ui, prev_config=None):
             vid_control_params = (('%s=%s' % (n, c['value'])) for n, c in ui['video_controls'].items())
             data['vid_control_params'] = ','.join(vid_control_params)
 
-    # else:  # assuming netcam
-    #     if re.match(r'^rtsp|^rtmp', data.get('netcam_url', prev_config.get('netcam_url', ''))):
-    #         # motion uses the configured width and height for RTSP/RTMP cameras
-    #         width = int(ui['resolution'].split('x')[0])
-    #         height = int(ui['resolution'].split('x')[1])
-    #         data['width'] = width
-    #         data['height'] = height
+    else:  # assuming netcam
+        if re.match(r'^rtsp|^rtmp', data.get('netcam_url', prev_config.get('netcam_url', ''))):
+            # motion uses the configured width and height for RTSP/RTMP cameras
+            width = int(ui['resolution'].split('x')[0])
+            height = int(ui['resolution'].split('x')[1])
+            data['width'] = width
+            data['height'] = height
     #
     #         # threshold = int(float(ui['frame_change_threshold']) * width * height / 100)
     #

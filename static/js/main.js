@@ -2045,12 +2045,13 @@ function cameraUi2Dict() {
 //        dict['working_schedule'] = false;
 //    }
 
-    if ($('#resolutionSelect').val() == 'custom') {
-        dict.resolution = $('#customWidthEntry').val() + 'x' + $('#customHeightEntry').val();
-    }
-    else {
-        dict.resolution = $('#resolutionSelect').val();
-    }
+//    if ($('#resolutionSelect').val() == 'custom') {
+//        dict.resolution = $('#customWidthEntry').val() + 'x' + $('#customHeightEntry').val();
+//    }
+//    else {
+//        dict.resolution = $('#resolutionSelect').val();
+//    }
+    dict.resolution = $('#resolutionSelect').val();
 
     /* additional sections */
     $('input[type=checkbox].additional-section.camera-config').each(function () {
@@ -2161,19 +2162,20 @@ function dict2CameraUi(dict) {
         dict['available_resolutions'].forEach(function (resolution) {
             $('#resolutionSelect').append('<option value="' + resolution + '">' + resolution + '</option>');
         });
-        $('#resolutionSelect').append('<option value="custom">Custom</option>');
+
     }
     $('#resolutionSelect').val(dict['resolution']); markHideIfNull('available_resolutions', 'resolutionSelect');
-    if (dict['resolution']) {
-        $('#customWidthEntry').val(dict['resolution'].split('x')[0]);
-        $('#customHeightEntry').val(dict['resolution'].split('x')[1]);
-    }
+//    if (dict['resolution']) {
+//        $('#customWidthEntry').val(dict['resolution'].split('x')[0]);
+//        $('#customHeightEntry').val(dict['resolution'].split('x')[1]);
+//    }
 
-    $('#rotationSelect').val(dict['rotation']); markHideIfNull('rotation', 'rotationSelect');
+//    $('#rotationSelect').val(dict['rotation']); markHideIfNull('rotation', 'rotationSelect');
     $('#framerateSlider').val(dict['framerate']); markHideIfNull('framerate', 'framerateSlider');
-    $('#extraOptionsEntry').val(dict['extra_options'] ? (dict['extra_options'].map(function (o) {
-        return o.join(' ');
-    }).join('\r\n')) : ''); markHideIfNull('extra_options', 'extraOptionsEntry');
+//    $('#extraOptionsEntry').val(dict['extra_options'] ? (dict['extra_options'].map(function (o) {
+//        return o.join(' ');
+//    }).join('\r\n')) : ''); markHideIfNull('extra_options', 'extraOptionsEntry')
+    ;
 
     /* file storage */
 //    $('#storageDeviceSelect').empty();
