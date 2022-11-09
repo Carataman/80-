@@ -3479,7 +3479,7 @@ function runLoginDialog(retry) {
 
     if (window._loginRetry) {
         errorTd.css('display', 'table-cell');
-        errorTd.html('Invalid credentials.');
+        errorTd.html('Недействительные данные!');
     }
 
     var params = {
@@ -3528,19 +3528,19 @@ function runPictureDialog(entries, pos, mediaType) {
         /* Reference: https://html.spec.whatwg.org/multipage/embedded-content.html#error-codes */
         switch (err.target.error.code) {
             case err.target.error.MEDIA_ERR_ABORTED:
-                msg = 'You aborted the video playback.';
+                msg = 'Вы отменинили воспроизведение видео.';
                 break;
             case err.target.error.MEDIA_ERR_NETWORK:
-                msg = 'A network error occurred.';
+                msg = 'Произошла сетевая ошибка.';
                 break;
             case err.target.error.MEDIA_ERR_DECODE:
-                msg = 'Media decode error or unsupported media features.';
+                msg = 'Ошибка кодека.';
                 break;
             case err.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-                msg = 'Media format unsupported or otherwise unavilable/unsuitable for playing.';
+                msg = 'Формат медиафайла не поддежриватеся.';
                 break;
             default:
-                msg = 'Unknown error occurred.'
+                msg = 'Произошла неизвестная ошибка.'
         }
 
         showErrorMessage('Error: ' + msg);

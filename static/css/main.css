@@ -348,21 +348,21 @@ div.apply-button {
     text-align: center;
     margin: 10px;
     color: white;
-    background-color: #FF6F00;
+    background-color: #800000;
     border-radius: 3px;
     transition: all 0.1s linear;
 }
 
 div.apply-button:HOVER {
-    background-color: #FF7D19;
+    background-color: #a52a2a;
 }
 
 div.apply-button:ACTIVE {
-    background-color: #F06800;
+    background-color: #a52a2a;
 }
 
 div.apply-button.progress {
-    background-color: #FF6F00;
+    background-color: #800000;
 }
 
 img.apply-progress {
