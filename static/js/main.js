@@ -581,7 +581,7 @@ function initUI() {
     /* custom validators */
     makeCustomValidator($('#adminPasswordEntry, #normalPasswordEntry'), function (value) {
         if (!value.toLowerCase().match(new RegExp('^[\x21-\x7F]*$'))) {
-            return "special characters are not allowed in password";
+            return "Пароль должен состоять из символов латинского алфавита, без специальных символов";
         }
 
         return true;
@@ -592,7 +592,7 @@ function initUI() {
         }
 
         if (!value.match(deviceNameValidRegExp)) {
-            return "special characters are not allowed in camera's name";
+            return "Имя камеры должно состоять из символов латинского алфавита, без специальных символов";
         }
 
         return true;
@@ -604,38 +604,38 @@ function initUI() {
 
         value = Number(value);
         if (value % 8) {
-            return "value must be a multiple of 8";
+            return "Значение должно быть кратно 8";
         }
 
         return true;
     }, '');
     makeCustomValidator($('#rootDirectoryEntry'), function (value) {
         if (!value.match(dirnameValidRegExp)) {
-            return "special characters are not allowed in root directory name";
+            return " ";
         }
         if ($('#storageDeviceSelect').val() == 'custom-path' && String(value).trim() == '/') {
-            return 'files cannot be created directly on the root of your system';
+            return ' ';
         }
 
         return true;
     }, '');
     makeCustomValidator($('#emailFromEntry'), function (value) {
         if (value && !value.match(emailValidRegExp)) {
-            return 'enter a vaild email address';
+            return ' ';
         }
 
         return true;
     }, '');
     makeCustomValidator($('#emailAddressesEntry'), function (value) {
         if (!value.match(emailValidRegExp)) {
-            return 'enter a list of comma-separated valid email addresses';
+            return ' ';
         }
 
         return true;
     }, '');
     makeCustomValidator($('#imageFileNameEntry, #movieFileNameEntry'), function (value) {
         if (!value.match(filenameValidRegExp)) {
-            return "special characters are not allowed in file name";
+            return "Имя файла должно содержать символы латинского алфавита, без специальных символов";
         }
 
         return true;
@@ -655,7 +655,7 @@ function initUI() {
             }
 
             if (!value.toLowerCase().match(new RegExp(validate))) {
-                return 'enter a valid value';
+                return 'Обязательное поле';
             }
 
             return true;
