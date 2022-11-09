@@ -3664,8 +3664,8 @@ function runPictureDialog(entries, pos, mediaType) {
         title: ' ',
         closeButton: true,
         buttons: [
-            {caption: 'Close'},
-            {caption: 'Download', isDefault: true, click: function () {
+            {caption: 'Отмена'},
+            {caption: 'Загрузить', isDefault: true, click: function () {
                 var entry = entries[pos];
                 downloadFile(mediaType + '/' + entry.cameraId + '/download' + entry.path);
 
@@ -4470,7 +4470,7 @@ function runMediaDialog(cameraId, mediaType) {
             }, 10);
         }
         else {
-            groupsDiv.html('(no media files)');
+            groupsDiv.html('(отсутствуют файлы)');
             mediaListDiv.remove();
         }
 
