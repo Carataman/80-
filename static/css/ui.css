@@ -18,7 +18,7 @@ input[type=checkbox].styled {
 }
 
 a {
-    color: #3498db;
+    color: #fffcff;
     text-decoration: inherit;
     transition: color 0.1s ease;
     cursor: pointer;
@@ -49,14 +49,14 @@ div.button.dialog {
     line-height: 1.2em;
     text-align: center;
     padding: 0.2em 0.4em;
-    border: 1px solid #317CAD;
+    border: 1px solid #808080;
     border-radius: 2px;
     color: white;
     transition: all 0.1s ease;
 }
 
 div.button.dialog.default {
-    background-color: #317CAD;
+    background-color: #808080;
 }
 
 div.button.mouse-effect {
@@ -84,7 +84,7 @@ div.check-box {
     position: relative;
     width: 2.5em;
     height: 1em;
-    border: 1px solid #317CAD;
+    border: 1px solid #808080;
     border-radius: 2px;
     color: #aaaaaa;
     vertical-align: middle;
@@ -121,7 +121,7 @@ span.check-box-text {
 
 div.check-box.on div.check-box-button {
     left: 50%;
-    background-color: #317CAD;
+    background-color: #808080;
     color: white;
 }
 
@@ -137,7 +137,7 @@ input[type=password].styled,
 input[type=text].styled,
 textarea.styled {
     width: 90%;
-    border: 1px solid #317CAD;
+    border: 1px solid #808080;
     border-radius: 2px;
     background-color: transparent;
     padding: 1px;
@@ -167,7 +167,7 @@ input[type=text].styled:HOVER,
 input[type=text].styled:FOCUS,
 textarea.styled:HOVER,
 textarea.styled:FOCUS {
-    border-color: #3498db;
+    border-color: #fffcff;
     color: white;
 }
 
@@ -199,7 +199,7 @@ select.styled {
     -webkit-appearance: none;
     appearance: none;
     width: 90%;
-    border: 1px solid #317CAD;
+    border: 1px solid #808080;
     border-radius: 2px;
     background-color: transparent;
     padding: 1px 1.25em 1px 1px;
@@ -221,7 +221,7 @@ select.styled:FOCUS {
 
 select.styled:HOVER,
 select.styled:FOCUS {
-    border-color: #3498db;
+    border-color: #fffcff;
     color: white;
 }
 
@@ -268,7 +268,7 @@ div.slider-bar {
 }
 
 div.slider-bar-inside {
-    border: 1px solid #317CAD;
+    border: 1px solid #808080;
     height: 3px;
     position: relative;
     top: 3px;
@@ -278,7 +278,7 @@ div.slider-bar-inside {
 
 div.slider:HOVER div.slider-bar-inside,
 div.slider:FOCUS div.slider-bar-inside {
-    border-color: #3498db;
+    border-color: #fffcff;
 }
 
 div.slider:FOCUS div.slider-bar-inside {
@@ -293,6 +293,7 @@ div.slider-cursor {
     left: 0px;
     top: -5px;
     cursor: pointer;
+
 }
 
 div.slider-cursor-label {
